@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>LHF</title>
+    <style>
+        body {
+            background: #202124;
+            color: #bdc1c6;
+            font: 16px/1.4 monospace;
+            margin: 0;
+            padding: 1em;
+        }
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;;
+
+        }
+        th, td  {
+            padding: 0.5em;
+            text-align: right;
+        }
+        tbody tr:nth-child(2n+1) {
+
+            background: #080809;
+        }
+        .txt {
+            text-align: left;
+        }
+        .container {
+            max-width: 80ch;
+
+        }
+
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+    <div class="container">
+        <h1>Top 500 websites not using any compression</h1>
+        <p>This is an automatically generated list of popular websites not applying any compression to their HTML responses.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th class="txt">URL</th>
+                    <th>Alexa Rank</th>
+                    <th>Savings (kB)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range .Sites }}
+                    <tr>
+                        <td class="txt">{{ .Url }}</td>
+                        <td>{{ .Rank }}</td>
+                        <td>{{ .Savings }}</td>
+                    </tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
